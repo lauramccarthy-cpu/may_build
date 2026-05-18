@@ -1,0 +1,66 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        navy: {
+          DEFAULT: '#1e3a5f',
+          50: '#eef3fa',
+          100: '#d5e2f2',
+          200: '#abc5e5',
+          300: '#7fa3d4',
+          400: '#4f7bbf',
+          500: '#2d5da3',
+          600: '#1e3a5f',
+          700: '#172d4a',
+          800: '#102036',
+          900: '#091323',
+        },
+        teal: {
+          DEFAULT: '#2a9d8f',
+          50: '#e8f7f6',
+          100: '#c3ebe7',
+          200: '#8fd7d0',
+          300: '#5ac0b5',
+          400: '#2a9d8f',
+          500: '#227f73',
+          600: '#1a6259',
+          700: '#134640',
+          800: '#0c2e29',
+          900: '#061815',
+        },
+        sage: {
+          DEFAULT: '#52b788',
+          50: '#ecf8f2',
+          100: '#c9ecda',
+          200: '#99d9b8',
+          300: '#6ac697',
+          400: '#52b788',
+          500: '#3a9a6d',
+          600: '#2d7a56',
+          700: '#205b3f',
+          800: '#143c29',
+          900: '#081e14',
+        },
+        sky: {
+          DEFAULT: '#e8f4fd',
+          50: '#f4f9fe',
+          100: '#e8f4fd',
+          200: '#c8e5fa',
+          300: '#a0d1f7',
+          400: '#6fb8f2',
+          500: '#3d9eec',
+        },
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      boxShadow: {
+        card: '0 2px 16px 0 rgba(30,58,95,0.08)',
+        'card-hover': '0 4px 24px 0 rgba(30,58,95,0.14)',
+      },
+    },
+  },
+  plugins: [],
+}
