@@ -17,7 +17,7 @@ const nextSteps = [
   {
     emoji: '🗣️',
     title: 'Have the conversation with your team',
-    desc: 'Talk openly about AI. What are they already using? What worries them? You'll be surprised what you learn.',
+    desc: "Talk openly about AI. What are they already using? What worries them? You'll be surprised what you learn.",
   },
 ]
 
