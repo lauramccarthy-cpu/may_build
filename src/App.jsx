@@ -3,7 +3,7 @@ import NavBar from './components/NavBar'
 import Landing from './pages/Landing'
 import AttendeeFlow from './pages/attendee/AttendeeFlow'
 import TutorDashboard from './pages/TutorDashboard'
-import ProjectorMode from './pages/ProjectorMode'
+import GroupView from './pages/GroupView'
 import ConsultancySummary from './pages/ConsultancySummary'
 
 export default function App() {
@@ -16,7 +16,7 @@ export default function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/attendee" element={<AttendeeFlow />} />
             <Route path="/tutor" element={<TutorDashboard />} />
-            <Route path="/projector" element={<ProjectorMode />} />
+            <Route path="/group-view" element={<GroupView />} />
             <Route path="/summary" element={<ConsultancySummary />} />
           </Routes>
         </main>

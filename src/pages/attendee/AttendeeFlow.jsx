@@ -5,19 +5,27 @@ import BusinessProfile from './steps/BusinessProfile'
 import OpeningPulse from './steps/OpeningPulse'
 import WaitForTutor from './steps/WaitForTutor'
 import ScenarioChallenge from './steps/ScenarioChallenge'
+import PostScenario from './steps/PostScenario'
 import AnonQuestion from './steps/AnonQuestion'
 import ClosingPulse from './steps/ClosingPulse'
 import EndScreen from './steps/EndScreen'
 
-// Step index reference:
-// 0 Welcome  1 BusinessProfile  2 OpeningPulse  3 WaitForTutor
-// 4 Scenario  5 AnonQuestion  6 ClosingPulse  7 EndScreen
-
-const TOTAL_PROGRESS_STEPS = 5 // steps that count toward progress bar (1-6, excl welcome+end)
+// Step index:
+// 0 Welcome
+// 1 BusinessProfile
+// 2 OpeningPulse
+// 3 WaitForTutor (before-scenario)
+// 4 ScenarioChallenge
+// 5 PostScenario
+// 6 AnonQuestion
+// 7 WaitForTutor (before-closing)
+// 8 ClosingPulse
+// 9 EndScreen
 
 const STEP_LABELS = [
   'Welcome', 'About You', 'Opening Check', 'Wait',
-  'Scenario', 'Question', 'Closing Check', 'Done',
+  'Scenario', 'Questions', 'Questions', 'Wait',
+  'Closing Check', 'Done',
 ]
 
 export default function AttendeeFlow() {
@@ -27,13 +35,11 @@ export default function AttendeeFlow() {
   const [scenarioData, setScenarioData] = useState({})
   const [closingRatings, setClosingRatings] = useState({})
 
-  const next = () => setStep((s) => Math.min(s + 1, 7))
+  const next = () => setStep((s) => Math.min(s + 1, 9))
   const back = () => setStep((s) => Math.max(s - 1, 0))
 
-  const showProgress = step >= 1 && step <= 6
-  const showBack = step >= 1 && step <= 6
-  // progress bar: steps 1-6 map to 1-5 out of 5
-  const progressPct = showProgress ? ((step - 1) / TOTAL_STEPS_FOR_BAR) * 100 : 0
+  const showProgress = step >= 1 && step <= 8
+  const showBack = step >= 1 && step <= 8
 
   return (
     <div className="min-h-[calc(100vh-64px)] bg-gradient-to-b from-sky-50 to-white">
@@ -55,12 +61,12 @@ export default function AttendeeFlow() {
           <div className="mb-5">
             <div className="flex justify-between text-xs text-slate-400 mb-1.5">
               <span>{STEP_LABELS[step]}</span>
-              <span>Step {step} of 6</span>
+              <span>Step {step} of 8</span>
             </div>
             <div className="w-full bg-slate-100 rounded-full h-1.5">
               <div
                 className="bg-teal-400 h-1.5 rounded-full transition-all duration-500"
-                style={{ width: `${((step - 1) / 5) * 100}%` }}
+                style={{ width: `${((step - 1) / 7) * 100}%` }}
               />
             </div>
           </div>
@@ -75,17 +81,17 @@ export default function AttendeeFlow() {
           {step === 2 && (
             <OpeningPulse onNext={next} data={openingRatings} setData={setOpeningRatings} />
           )}
-          {step === 3 && <WaitForTutor onNext={next} />}
+          {step === 3 && <WaitForTutor onNext={next} variant="before-scenario" />}
           {step === 4 && (
             <ScenarioChallenge onNext={next} setData={setScenarioData} />
           )}
-          {step === 5 && (
-            <AnonQuestion onNext={next} onSkip={next} />
-          )}
-          {step === 6 && (
+          {step === 5 && <PostScenario onNext={next} />}
+          {step === 6 && <AnonQuestion onNext={next} />}
+          {step === 7 && <WaitForTutor onNext={next} variant="before-closing" />}
+          {step === 8 && (
             <ClosingPulse onNext={next} data={closingRatings} setData={setClosingRatings} openingData={openingRatings} />
           )}
-          {step === 7 && (
+          {step === 9 && (
             <EndScreen openingData={openingRatings} closingData={closingRatings} />
           )}
         </div>
@@ -93,5 +99,3 @@ export default function AttendeeFlow() {
     </div>
   )
 }
-
-const TOTAL_STEPS_FOR_BAR = 5

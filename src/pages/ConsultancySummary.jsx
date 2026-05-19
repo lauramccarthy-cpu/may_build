@@ -81,12 +81,12 @@ export default function ConsultancySummary() {
       {/* Header */}
       <div className="mb-6">
         <p className="text-xs font-semibold uppercase tracking-widest text-teal-400 mb-1">
-          Consultancy Report
+          Tutor Summary
         </p>
-        <h1 className="text-2xl sm:text-3xl font-bold text-navy-600 mb-2">
-          AI Readiness for SMEs — Session Summary
+        <h1 className="text-xl sm:text-2xl font-bold text-navy-600 mb-2">
+          AI Readiness for SMEs
         </h1>
-        <p className="text-sm text-slate-500">Generated {new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+        <p className="text-sm text-slate-500">Session report · {new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
       </div>
 
       {/* Scout sign-off */}
@@ -94,7 +94,7 @@ export default function ConsultancySummary() {
         <ScoutCard
           size="sm"
           tone="success"
-          message={`This group made real progress today. Overall confidence moved from ${overallOpen} to ${overallClose} out of 5 — and that's just the beginning. Here's everything you need to keep the momentum going.`}
+          message={`This group made real progress today. Overall confidence moved from ${overallOpen} to ${overallClose} out of 5. Here is everything you need to keep the momentum going.`}
         />
       </div>
 
