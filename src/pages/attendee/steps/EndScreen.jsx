@@ -15,7 +15,7 @@ const nextSteps = [
     desc: 'Pick one regular task and ask: could AI save time here? Start with something low-risk like drafting emails.',
   },
   {
-    emoji: 'ğŸ—£ï¸',
+    emoji: 'ğŸ, £ï¸',
     title: 'Have the conversation with your team',
     desc: "Talk openly about AI. What are they already using? What worries them? You'll be surprised what you learn.",
   },
