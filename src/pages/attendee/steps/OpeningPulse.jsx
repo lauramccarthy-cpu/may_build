@@ -18,7 +18,7 @@ export default function OpeningPulse({ onNext, data, setData }) {
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <h2 className="text-xl font-bold text-navy-DEFAULT mb-1">How confident do you feel right now?</h2>
+        <h2 className="text-xl font-bold text-navy-600 mb-1">How confident do you feel right now?</h2>
         <p className="text-sm text-slate-500">Rate each area from 1 (not at all) to 5 (very confident).</p>
       </div>
 
@@ -45,7 +45,7 @@ export default function OpeningPulse({ onNext, data, setData }) {
         className={[
           'w-full py-3 rounded-xl font-semibold transition-colors',
           allRated
-            ? 'bg-teal-DEFAULT text-white hover:bg-teal-500'
+            ? 'bg-teal-400 text-white hover:bg-teal-500'
             : 'bg-slate-100 text-slate-400 cursor-not-allowed',
         ].join(' ')}
       >

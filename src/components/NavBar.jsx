@@ -19,7 +19,7 @@ export default function NavBar() {
       'text-sm font-medium transition-colors px-1 pb-0.5',
       isActive
         ? 'text-teal-400 border-b-2 border-teal-400'
-        : 'text-slate-600 hover:text-navy-DEFAULT',
+        : 'text-slate-600 hover:text-navy-600',
     ].join(' ')
 
   return (
@@ -29,9 +29,9 @@ export default function NavBar() {
           {/* Logo */}
           <NavLink to="/" className="flex items-center gap-2 shrink-0">
             <Scout size="sm" />
-            <span className="font-semibold text-navy-DEFAULT text-base leading-tight">
+            <span className="font-semibold text-navy-600 text-base leading-tight">
               WorkFluency<br />
-              <span className="text-teal-DEFAULT text-xs font-normal">AI Companion</span>
+              <span className="text-teal-400 text-xs font-normal">AI Companion</span>
             </span>
           </NavLink>
 

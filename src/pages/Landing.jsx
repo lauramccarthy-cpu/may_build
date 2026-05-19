@@ -1,94 +1,72 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Users, LayoutDashboard, Monitor, FileText } from 'lucide-react'
+import { LayoutDashboard, Monitor, FileText, ChevronDown } from 'lucide-react'
 import Scout from '../components/Scout'
 
-const views = [
-  {
-    to: '/attendee',
-    icon: Users,
-    title: 'Attendee Companion',
-    desc: 'Your step-by-step journey through the workshop — confidence check, scenario challenge and practical next steps.',
-    colour: 'from-teal-400 to-teal-DEFAULT',
-    bg: 'hover:bg-teal-50',
-  },
-  {
-    to: '/tutor',
-    icon: LayoutDashboard,
-    title: 'Tutor Dashboard',
-    desc: 'See how the group is doing — confidence averages, anonymous questions and smart nudges from Scout.',
-    colour: 'from-navy-400 to-navy-DEFAULT',
-    bg: 'hover:bg-sky-50',
-  },
-  {
-    to: '/projector',
-    icon: Monitor,
-    title: 'Projector Mode',
-    desc: 'A clean full-screen view for sharing with the room — group data only, no individual details.',
-    colour: 'from-slate-500 to-slate-700',
-    bg: 'hover:bg-slate-50',
-  },
-  {
-    to: '/summary',
-    icon: FileText,
-    title: 'Consultancy Summary',
-    desc: 'A polished report for the tutor or business owner — confidence movement, key questions and follow-up recommendations.',
-    colour: 'from-sage-DEFAULT to-sage-600',
-    bg: 'hover:bg-emerald-50',
-  },
+const tutorLinks = [
+  { to: '/tutor', icon: LayoutDashboard, label: 'Tutor Dashboard' },
+  { to: '/projector', icon: Monitor, label: 'Projector Mode' },
+  { to: '/summary', icon: FileText, label: 'Consultancy Summary' },
 ]
 
 export default function Landing() {
   const navigate = useNavigate()
+  const [tutorOpen, setTutorOpen] = useState(false)
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-gradient-to-b from-sky-100 via-white to-white">
-      {/* Hero */}
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 pt-16 pb-12 text-center">
-        <div className="flex justify-center mb-6">
-          <Scout size="lg" />
-        </div>
-        <h1 className="text-3xl sm:text-4xl font-bold text-navy-DEFAULT mb-4 leading-tight">
+    <div className="min-h-[calc(100vh-64px)] bg-gradient-to-b from-sky-100 via-white to-white flex flex-col items-center px-4 pt-12 pb-16">
+
+      {/* Scout + Hero */}
+      <div className="flex flex-col items-center text-center mb-10">
+        <Scout size="lg" />
+        <h1 className="text-3xl sm:text-4xl font-bold text-navy-600 mt-5 mb-2 leading-tight">
           WorkFluency<br />
-          <span className="text-teal-DEFAULT">AI Companion</span>
+          <span className="text-teal-400">AI Companion</span>
         </h1>
-        <p className="text-lg text-slate-600 mb-2 max-w-xl mx-auto">
-          Your friendly guide to AI confidence at work
-        </p>
-        <p className="text-sm text-slate-500 max-w-lg mx-auto">
-          A tutor-led workshop companion for <strong className="text-navy-DEFAULT">AI Readiness for SMEs</strong>.
-          Pick a view below to get started.
+        <p className="text-slate-500 text-base max-w-xs">
+          Your guide for today's AI Readiness workshop
         </p>
       </div>
 
-      {/* Cards */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 pb-20">
-        <div className="grid sm:grid-cols-2 gap-5">
-          {views.map(({ to, icon: Icon, title, desc, colour, bg }) => (
-            <button
-              key={to}
-              onClick={() => navigate(to)}
-              className={`group text-left bg-white rounded-2xl shadow-card border border-slate-100 p-6 transition-all duration-200 hover:shadow-card-hover ${bg}`}
-            >
-              <div className="flex items-start gap-4">
-                <div className={`p-3 rounded-xl bg-gradient-to-br ${colour} shrink-0`}>
-                  <Icon size={22} className="text-white" />
-                </div>
-                <div>
-                  <h2 className="font-semibold text-navy-DEFAULT text-base mb-1 group-hover:text-teal-DEFAULT transition-colors">
-                    {title}
-                  </h2>
-                  <p className="text-sm text-slate-600 leading-relaxed">{desc}</p>
-                </div>
-              </div>
-            </button>
-          ))}
-        </div>
+      {/* Primary CTA — Attendee */}
+      <button
+        onClick={() => navigate('/attendee')}
+        className="w-full max-w-sm bg-teal-400 hover:bg-teal-500 active:scale-95 text-white rounded-2xl px-8 py-5 shadow-lg transition-all duration-150 mb-4"
+      >
+        <p className="text-xl font-bold mb-0.5">I'm an Attendee</p>
+        <p className="text-sm text-teal-100">Tap here to begin your session →</p>
+      </button>
 
-        {/* Footer note */}
-        <p className="text-center text-xs text-slate-400 mt-10">
-          No sign-in required · No data stored · Fully private
-        </p>
+      {/* Tutor access — secondary, understated */}
+      <div className="w-full max-w-sm">
+        <button
+          onClick={() => setTutorOpen((v) => !v)}
+          className="w-full flex items-center justify-between px-5 py-3 rounded-xl border border-slate-200 text-slate-400 hover:text-slate-600 hover:border-slate-300 bg-white transition-colors text-sm"
+        >
+          <span>Tutor access</span>
+          <ChevronDown
+            size={16}
+            className={`transition-transform duration-200 ${tutorOpen ? 'rotate-180' : ''}`}
+          />
+        </button>
+
+        {tutorOpen && (
+          <div className="mt-2 flex flex-col gap-2">
+            {tutorLinks.map(({ to, icon: Icon, label }) => (
+              <button
+                key={to}
+                onClick={() => navigate(to)}
+                className="flex items-center gap-3 px-5 py-3 rounded-xl border border-slate-100 bg-white text-slate-500 hover:text-navy-600 hover:border-slate-200 transition-colors text-sm"
+              >
+                <Icon size={16} className="text-slate-400" />
+                {label}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
+
+      <p className="text-xs text-slate-300 mt-10">No sign-in · No data stored · Fully private</p>
     </div>
   )
 }

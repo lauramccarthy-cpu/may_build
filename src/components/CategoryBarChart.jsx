@@ -24,11 +24,11 @@ export default function CategoryBarChart({
       {showBefore && (
         <div className="flex items-center gap-3 mb-1">
           <span className="flex items-center gap-1.5 text-xs text-slate-500">
-            <span className="inline-block w-3 h-3 rounded-sm bg-navy-DEFAULT opacity-60" />
+            <span className="inline-block w-3 h-3 rounded-sm bg-navy-600 opacity-60" />
             Before
           </span>
           <span className="flex items-center gap-1.5 text-xs text-slate-500">
-            <span className="inline-block w-3 h-3 rounded-sm bg-teal-DEFAULT" />
+            <span className="inline-block w-3 h-3 rounded-sm bg-teal-400" />
             After
           </span>
         </div>
@@ -46,7 +46,7 @@ export default function CategoryBarChart({
             <div className="flex items-center justify-between">
               <span className={labelClass}>{label}</span>
               {delta > 0 && !projector && (
-                <span className="text-xs text-sage-DEFAULT font-medium">+{delta.toFixed(1)}</span>
+                <span className="text-xs text-sage-400 font-medium">+{delta.toFixed(1)}</span>
               )}
               {projector && (
                 <span className="text-white text-sm font-bold">{closeVal.toFixed(1)}/5</span>
@@ -59,7 +59,7 @@ export default function CategoryBarChart({
                 <div className="flex items-center gap-2">
                   <div className="flex-1 bg-slate-100 rounded-full h-2.5 overflow-hidden">
                     <div
-                      className="h-full rounded-full bg-navy-DEFAULT opacity-50 transition-all duration-700"
+                      className="h-full rounded-full bg-navy-600 opacity-50 transition-all duration-700"
                       style={{ width: `${pctOpen}%` }}
                     />
                   </div>
@@ -69,7 +69,7 @@ export default function CategoryBarChart({
               <div className="flex items-center gap-2">
                 <div className={`flex-1 rounded-full overflow-hidden ${projector ? 'h-5' : 'h-3'} ${projector ? 'bg-white/10' : 'bg-slate-100'}`}>
                   <div
-                    className={`h-full rounded-full transition-all duration-700 ${projector ? 'bg-teal-DEFAULT' : 'bg-teal-400'}`}
+                    className={`h-full rounded-full transition-all duration-700 ${projector ? 'bg-teal-400' : 'bg-teal-400'}`}
                     style={{ width: `${pctClose}%` }}
                   />
                 </div>

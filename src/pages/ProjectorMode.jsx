@@ -6,7 +6,7 @@ const maxVal = 5
 
 export default function ProjectorMode() {
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-navy-DEFAULT flex flex-col px-8 sm:px-16 py-10 text-white">
+    <div className="min-h-[calc(100vh-64px)] bg-navy-600 flex flex-col px-8 sm:px-16 py-10 text-white">
 
       {/* Header */}
       <div className="mb-8">

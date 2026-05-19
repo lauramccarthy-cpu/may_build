@@ -28,10 +28,10 @@ export default function ScenarioChallenge({ onNext, setData }) {
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <span className="inline-block bg-navy-DEFAULT text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">
+        <span className="inline-block bg-navy-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">
           Scenario Challenge
         </span>
-        <h2 className="text-xl font-bold text-navy-DEFAULT mb-2 leading-snug">
+        <h2 className="text-xl font-bold text-navy-600 mb-2 leading-snug">
           What should they check first?
         </h2>
         <div className="bg-sky-50 border border-sky-200 rounded-2xl p-4 text-sm text-slate-700 leading-relaxed">
@@ -45,7 +45,7 @@ export default function ScenarioChallenge({ onNext, setData }) {
       <div className="flex flex-col gap-3">
         {options.map(({ id, text }) => {
           let style = 'border-slate-200 bg-white hover:border-teal-300 hover:bg-sky-50'
-          if (revealed && id === CORRECT) style = 'border-sage-DEFAULT bg-emerald-50'
+          if (revealed && id === CORRECT) style = 'border-sage-400 bg-emerald-50'
           else if (revealed && id === selected && id !== CORRECT) style = 'border-red-300 bg-red-50'
           else if (revealed) style = 'border-slate-100 bg-slate-50 opacity-60'
 
@@ -58,7 +58,7 @@ export default function ScenarioChallenge({ onNext, setData }) {
             >
               <span className="mt-0.5 shrink-0 font-semibold text-slate-400 w-4">{id.toUpperCase()}.</span>
               <span>{text}</span>
-              {revealed && id === CORRECT && <CheckCircle size={16} className="text-sage-DEFAULT shrink-0 ml-auto mt-0.5" />}
+              {revealed && id === CORRECT && <CheckCircle size={16} className="text-sage-400 shrink-0 ml-auto mt-0.5" />}
               {revealed && id === selected && id !== CORRECT && <XCircle size={16} className="text-red-400 shrink-0 ml-auto mt-0.5" />}
             </button>
           )
@@ -79,7 +79,7 @@ export default function ScenarioChallenge({ onNext, setData }) {
       {revealed && (
         <button
           onClick={onNext}
-          className="w-full bg-teal-DEFAULT text-white py-3 rounded-xl font-semibold hover:bg-teal-500 transition-colors"
+          className="w-full bg-teal-400 text-white py-3 rounded-xl font-semibold hover:bg-teal-500 transition-colors"
         >
           Continue →
         </button>

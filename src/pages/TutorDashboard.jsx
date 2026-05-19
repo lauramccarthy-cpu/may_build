@@ -30,7 +30,7 @@ export default function TutorDashboard() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-navy-DEFAULT mb-1">Tutor Dashboard</h1>
+        <h1 className="text-2xl font-bold text-navy-600 mb-1">Tutor Dashboard</h1>
         <p className="text-sm text-slate-500">Session overview · 18 attendees · Sample data</p>
       </div>
 
@@ -46,20 +46,20 @@ export default function TutorDashboard() {
       {/* Summary stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
         <StatCard
-          icon={<Users size={18} className="text-navy-DEFAULT" />}
+          icon={<Users size={18} className="text-navy-600" />}
           label="Attendees"
           value="18"
           bg="bg-sky-50"
         />
         <StatCard
-          icon={<TrendingUp size={18} className="text-teal-DEFAULT" />}
+          icon={<TrendingUp size={18} className="text-teal-400" />}
           label="Avg confidence"
           value={`${overallOpen} → ${overallClose}`}
           bg="bg-teal-50"
           sub="out of 5"
         />
         <StatCard
-          icon={<TrendingUp size={18} className="text-sage-DEFAULT" />}
+          icon={<TrendingUp size={18} className="text-sage-400" />}
           label="Biggest improvement"
           value={improvement}
           bg="bg-emerald-50"
@@ -75,7 +75,7 @@ export default function TutorDashboard() {
       <div className="grid lg:grid-cols-2 gap-6 mb-8">
         {/* Category chart */}
         <div className="bg-white rounded-2xl border border-slate-100 shadow-card p-5">
-          <h2 className="font-semibold text-navy-DEFAULT mb-4">Confidence by category</h2>
+          <h2 className="font-semibold text-navy-600 mb-4">Confidence by category</h2>
           <CategoryBarChart
             opening={openAvg}
             closing={closeAvg}
@@ -87,7 +87,7 @@ export default function TutorDashboard() {
         {/* Scenario stats */}
         <div className="flex flex-col gap-4">
           <div className="bg-white rounded-2xl border border-slate-100 shadow-card p-5">
-            <h2 className="font-semibold text-navy-DEFAULT mb-3">Scenario challenge</h2>
+            <h2 className="font-semibold text-navy-600 mb-3">Scenario challenge</h2>
             <div className="flex items-center gap-4">
               <div className="relative w-20 h-20">
                 <svg viewBox="0 0 36 36" className="w-20 h-20 -rotate-90">
@@ -99,17 +99,17 @@ export default function TutorDashboard() {
                     strokeLinecap="round"
                   />
                 </svg>
-                <span className="absolute inset-0 flex items-center justify-center text-sm font-bold text-navy-DEFAULT">
+                <span className="absolute inset-0 flex items-center justify-center text-sm font-bold text-navy-600">
                   {scenarioCorrectCount}/18
                 </span>
               </div>
               <div>
-                <p className="font-semibold text-navy-DEFAULT text-lg">{scenarioCorrectCount} correct</p>
+                <p className="font-semibold text-navy-600 text-lg">{scenarioCorrectCount} correct</p>
                 <p className="text-xs text-slate-500">
                   {attendees.length - scenarioCorrectCount} attendees selected a different answer
                 </p>
                 <p className="text-xs text-slate-400 mt-1 flex items-center gap-1">
-                  <CheckCircle size={12} className="text-teal-DEFAULT" />
+                  <CheckCircle size={12} className="text-teal-400" />
                   Correct: check for personal/sensitive data
                 </p>
               </div>
@@ -118,7 +118,7 @@ export default function TutorDashboard() {
 
           {/* Category averages table */}
           <div className="bg-white rounded-2xl border border-slate-100 shadow-card p-5">
-            <h2 className="font-semibold text-navy-DEFAULT mb-3">Category averages</h2>
+            <h2 className="font-semibold text-navy-600 mb-3">Category averages</h2>
             <table className="w-full text-sm">
               <thead>
                 <tr className="text-xs text-slate-400 border-b border-slate-100">
@@ -135,9 +135,9 @@ export default function TutorDashboard() {
                     <tr key={key} className="border-b border-slate-50 last:border-0">
                       <td className="py-2 text-slate-700">{label}</td>
                       <td className="py-2 text-center text-slate-500">{openAvg[key]}</td>
-                      <td className="py-2 text-center font-medium text-navy-DEFAULT">{closeAvg[key]}</td>
+                      <td className="py-2 text-center font-medium text-navy-600">{closeAvg[key]}</td>
                       <td className="py-2 text-center">
-                        <span className={`text-xs font-semibold ${delta > 0 ? 'text-sage-DEFAULT' : 'text-slate-400'}`}>
+                        <span className={`text-xs font-semibold ${delta > 0 ? 'text-sage-400' : 'text-slate-400'}`}>
                           {delta > 0 ? '+' : ''}{delta.toFixed(1)}
                         </span>
                       </td>
@@ -152,7 +152,7 @@ export default function TutorDashboard() {
 
       {/* Anonymous questions */}
       <div>
-        <h2 className="font-semibold text-navy-DEFAULT mb-3">Anonymous questions from the group</h2>
+        <h2 className="font-semibold text-navy-600 mb-3">Anonymous questions from the group</h2>
         <div className="grid sm:grid-cols-2 gap-3">
           {anonQuestions.map((q, i) => (
             <div key={i} className="bg-sky-50 border border-sky-200 rounded-2xl p-4 text-sm text-slate-700">
@@ -173,7 +173,7 @@ function StatCard({ icon, label, value, sub, bg }) {
         {icon}
         <span>{label}</span>
       </div>
-      <p className="font-bold text-navy-DEFAULT text-base leading-tight">{value}</p>
+      <p className="font-bold text-navy-600 text-base leading-tight">{value}</p>
       {sub && <p className="text-xs text-slate-400">{sub}</p>}
     </div>
   )

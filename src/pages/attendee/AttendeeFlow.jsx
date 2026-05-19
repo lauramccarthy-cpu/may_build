@@ -42,7 +42,7 @@ export default function AttendeeFlow() {
             </div>
             <div className="w-full bg-slate-100 rounded-full h-1.5">
               <div
-                className="bg-teal-DEFAULT h-1.5 rounded-full transition-all duration-500"
+                className="bg-teal-400 h-1.5 rounded-full transition-all duration-500"
                 style={{ width: `${((step - 1) / (STEPS.length - 2)) * 100}%` }}
               />
             </div>

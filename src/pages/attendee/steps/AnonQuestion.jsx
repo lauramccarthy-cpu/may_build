@@ -15,7 +15,7 @@ export default function AnonQuestion({ onNext, onSkip }) {
       <div className="flex flex-col items-center gap-6 py-8 text-center">
         <div className="text-4xl">✉️</div>
         <div>
-          <h2 className="text-xl font-bold text-navy-DEFAULT mb-2">Question submitted!</h2>
+          <h2 className="text-xl font-bold text-navy-600 mb-2">Question submitted!</h2>
           <p className="text-slate-600 text-sm">Your question is completely anonymous. The tutor will address it during the session.</p>
         </div>
       </div>
@@ -25,7 +25,7 @@ export default function AnonQuestion({ onNext, onSkip }) {
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <h2 className="text-xl font-bold text-navy-DEFAULT mb-1">Got a question?</h2>
+        <h2 className="text-xl font-bold text-navy-600 mb-1">Got a question?</h2>
         <p className="text-sm text-slate-500">Ask anything — completely anonymous. The tutor will see questions as a group, with no names attached.</p>
       </div>
 
@@ -48,7 +48,7 @@ export default function AnonQuestion({ onNext, onSkip }) {
           className={[
             'flex-1 py-3 rounded-xl font-semibold transition-colors',
             question.trim()
-              ? 'bg-teal-DEFAULT text-white hover:bg-teal-500'
+              ? 'bg-teal-400 text-white hover:bg-teal-500'
               : 'bg-slate-100 text-slate-400 cursor-not-allowed',
           ].join(' ')}
         >

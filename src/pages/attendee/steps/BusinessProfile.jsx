@@ -19,7 +19,7 @@ export default function BusinessProfile({ onNext, onSkip, data, setData }) {
       <ScoutCard message="This is optional — just helps us understand the mix of businesses in the room. We never share individual details." />
 
       <div>
-        <h2 className="text-xl font-bold text-navy-DEFAULT mb-1">Tell us a little about your business</h2>
+        <h2 className="text-xl font-bold text-navy-600 mb-1">Tell us a little about your business</h2>
         <p className="text-sm text-slate-500">Optional — you can skip this if you prefer.</p>
       </div>
 
@@ -47,7 +47,7 @@ export default function BusinessProfile({ onNext, onSkip, data, setData }) {
       <div className="flex gap-3 pt-2">
         <button
           onClick={handleNext}
-          className="flex-1 bg-teal-DEFAULT text-white px-6 py-3 rounded-xl font-semibold hover:bg-teal-500 transition-colors"
+          className="flex-1 bg-teal-400 text-white px-6 py-3 rounded-xl font-semibold hover:bg-teal-500 transition-colors"
         >
           Continue →
         </button>

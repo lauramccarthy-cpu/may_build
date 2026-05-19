@@ -80,10 +80,10 @@ export default function ConsultancySummary() {
 
       {/* Header */}
       <div className="mb-6">
-        <p className="text-xs font-semibold uppercase tracking-widest text-teal-DEFAULT mb-1">
+        <p className="text-xs font-semibold uppercase tracking-widest text-teal-400 mb-1">
           Consultancy Report
         </p>
-        <h1 className="text-2xl sm:text-3xl font-bold text-navy-DEFAULT mb-2">
+        <h1 className="text-2xl sm:text-3xl font-bold text-navy-600 mb-2">
           AI Readiness for SMEs — Session Summary
         </h1>
         <p className="text-sm text-slate-500">Generated {new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
@@ -118,8 +118,8 @@ export default function ConsultancySummary() {
       <Section title="2. Confidence Movement">
         <p className="text-sm text-slate-600 mb-4">
           Across all five categories, attendees showed meaningful improvement. The area of greatest growth was{' '}
-          <strong className="text-navy-DEFAULT">{improvement}</strong>, while{' '}
-          <strong className="text-navy-DEFAULT">{gap}</strong> remains the area with the most opportunity for further development.
+          <strong className="text-navy-600">{improvement}</strong>, while{' '}
+          <strong className="text-navy-600">{gap}</strong> remains the area with the most opportunity for further development.
         </p>
         <div className="bg-white border border-slate-100 rounded-2xl shadow-card overflow-hidden">
           <table className="w-full text-sm">
@@ -140,13 +140,13 @@ export default function ConsultancySummary() {
                   <tr key={key} className={`border-b border-slate-50 last:border-0 ${isGap ? 'bg-amber-50' : isBest ? 'bg-emerald-50' : ''}`}>
                     <td className="px-4 py-3 font-medium text-slate-700">
                       {label}
-                      {isBest && <span className="ml-2 text-xs text-sage-DEFAULT">↑ Top mover</span>}
+                      {isBest && <span className="ml-2 text-xs text-sage-400">↑ Top mover</span>}
                       {isGap && <span className="ml-2 text-xs text-amber-500">↓ Focus area</span>}
                     </td>
                     <td className="px-4 py-3 text-center text-slate-500">{openAvg[key]}</td>
-                    <td className="px-4 py-3 text-center font-semibold text-navy-DEFAULT">{closeAvg[key]}</td>
+                    <td className="px-4 py-3 text-center font-semibold text-navy-600">{closeAvg[key]}</td>
                     <td className="px-4 py-3 text-center">
-                      <span className={`text-sm font-bold ${delta > 0 ? 'text-sage-DEFAULT' : 'text-slate-400'}`}>
+                      <span className={`text-sm font-bold ${delta > 0 ? 'text-sage-400' : 'text-slate-400'}`}>
                         {delta > 0 ? '+' : ''}{delta.toFixed(1)}
                       </span>
                     </td>
@@ -183,7 +183,7 @@ export default function ConsultancySummary() {
             <div key={action.title} className="flex gap-4 bg-white border border-slate-100 rounded-2xl p-4 shadow-card">
               <span className="text-2xl shrink-0">{action.emoji}</span>
               <div>
-                <p className="font-semibold text-navy-DEFAULT text-sm mb-1">{action.title}</p>
+                <p className="font-semibold text-navy-600 text-sm mb-1">{action.title}</p>
                 <p className="text-xs text-slate-600 leading-relaxed">{action.desc}</p>
               </div>
             </div>
@@ -199,9 +199,9 @@ export default function ConsultancySummary() {
         <div className="relative bg-slate-50 border border-slate-200 rounded-2xl p-5">
           <button
             onClick={copyEmail}
-            className="absolute top-4 right-4 flex items-center gap-1.5 text-xs text-slate-500 hover:text-navy-DEFAULT bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 transition-colors"
+            className="absolute top-4 right-4 flex items-center gap-1.5 text-xs text-slate-500 hover:text-navy-600 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 transition-colors"
           >
-            {copied ? <Check size={13} className="text-teal-DEFAULT" /> : <Copy size={13} />}
+            {copied ? <Check size={13} className="text-teal-400" /> : <Copy size={13} />}
             {copied ? 'Copied!' : 'Copy'}
           </button>
           <pre className="text-xs text-slate-700 leading-relaxed whitespace-pre-wrap font-sans pr-20">
@@ -223,7 +223,7 @@ export default function ConsultancySummary() {
 function Section({ title, children }) {
   return (
     <div className="mb-8">
-      <h2 className="text-base font-bold text-navy-DEFAULT mb-3 pb-2 border-b border-slate-100">{title}</h2>
+      <h2 className="text-base font-bold text-navy-600 mb-3 pb-2 border-b border-slate-100">{title}</h2>
       {children}
     </div>
   )
@@ -233,7 +233,7 @@ function InfoTile({ label, value }) {
   return (
     <div className="bg-sky-50 border border-sky-100 rounded-xl p-3 text-center">
       <p className="text-xs text-slate-500 mb-0.5">{label}</p>
-      <p className="font-bold text-navy-DEFAULT text-lg">{value}</p>
+      <p className="font-bold text-navy-600 text-lg">{value}</p>
     </div>
   )
 }

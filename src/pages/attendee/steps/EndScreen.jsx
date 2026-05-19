@@ -38,7 +38,7 @@ export default function EndScreen({ openingData, closingData }) {
       <div className="flex flex-col items-center gap-4">
         <Badge />
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-navy-DEFAULT mb-1">Well done!</h2>
+          <h2 className="text-2xl font-bold text-navy-600 mb-1">Well done!</h2>
           <p className="text-slate-600 text-sm max-w-sm">
             You've completed today's AI readiness check. You should be proud — awareness is the first step.
           </p>
@@ -49,9 +49,9 @@ export default function EndScreen({ openingData, closingData }) {
       {topImprovement && (
         <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 text-center">
           <p className="text-sm text-slate-600 mb-1">Biggest confidence shift</p>
-          <p className="text-lg font-bold text-navy-DEFAULT">
+          <p className="text-lg font-bold text-navy-600">
             {topImprovement.label}{' '}
-            <span className="text-sage-DEFAULT">+{topImprovement.delta}</span>
+            <span className="text-sage-400">+{topImprovement.delta}</span>
           </p>
         </div>
       )}
@@ -60,7 +60,7 @@ export default function EndScreen({ openingData, closingData }) {
       <div className="flex items-start gap-3 bg-sky-50 border border-sky-200 rounded-2xl p-4">
         <Scout size="sm" />
         <div>
-          <p className="text-sm font-semibold text-navy-DEFAULT mb-0.5">Scout says</p>
+          <p className="text-sm font-semibold text-navy-600 mb-0.5">Scout says</p>
           <p className="text-sm text-slate-700">
             Remember — you don't need to become an AI expert overnight. Small, thoughtful steps will get
             your business ready. You've already taken the most important one by showing up today.
@@ -70,13 +70,13 @@ export default function EndScreen({ openingData, closingData }) {
 
       {/* Next steps */}
       <div>
-        <h3 className="text-base font-semibold text-navy-DEFAULT mb-3">Three practical next steps</h3>
+        <h3 className="text-base font-semibold text-navy-600 mb-3">Three practical next steps</h3>
         <div className="flex flex-col gap-3">
           {nextSteps.map((step) => (
             <div key={step.title} className="flex gap-3 bg-white border border-slate-100 rounded-2xl p-4 shadow-card">
               <span className="text-2xl shrink-0">{step.emoji}</span>
               <div>
-                <p className="font-semibold text-navy-DEFAULT text-sm mb-0.5">{step.title}</p>
+                <p className="font-semibold text-navy-600 text-sm mb-0.5">{step.title}</p>
                 <p className="text-xs text-slate-600 leading-relaxed">{step.desc}</p>
               </div>
             </div>
